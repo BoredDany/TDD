@@ -64,13 +64,12 @@ public class Salon {
         return this.arrive_times.length;
     }
     public boolean valid_values(int[] arrive_times){
-        boolean is_valid = true;
         for(int i : arrive_times){
             if (i < -100 || i > 100){
-                is_valid = false;
+                return false;
             }
         }
-        return is_valid;
+        return true;
     }
 
     public boolean isClassCancelled() {
