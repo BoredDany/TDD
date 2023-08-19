@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Salon {
 
-    //1 < n < 1000
-    //1 < k < n
+    //1 <= n <= 1000
+    //1 <= k <= n
     //-100 <= arr[i] <= 100
     private int min_students;
     private int[] arrive_times;
@@ -53,21 +53,23 @@ public class Salon {
         }
         this.min_students = min_students;
     }
-    public void asign_array (int[] arrive_times){
-        if(arrive_times.length < 1 || arrive_times.length >100){
+    public int asign_array (int[] arrive_times){
+        if(arrive_times.length < 1 || arrive_times.length >100 || arrive_times == null){
             throw new RuntimeException("Numero de estudiantes no valido");
         }
-        if(negative_values(arrive_times)){
+        if(!valid_values(arrive_times)){
             throw new RuntimeException("Tiempos de llegada no validos");
         }
+        this.arrive_times = arrive_times;
+        return this.arrive_times.length;
     }
-    public boolean negative_values(int[] arrive_times){
-        boolean is_negative = false;
-        for(int i = 0 ; i < arrive_times.length ; i++){
-            if (arrive_times[i] < 0){
-                is_negative = true;
+    public boolean valid_values(int[] arrive_times){
+        boolean is_valid = true;
+        for(int i : arrive_times){
+            if (i < -100 || i > 100){
+                is_valid = false;
             }
         }
-        return is_negative;
+        return is_valid;
     }
 }
