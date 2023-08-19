@@ -72,4 +72,16 @@ public class Salon {
         }
         return is_valid;
     }
+
+    public boolean isClassCancelled() {
+        int onTimeCount = 0;
+
+        for (int arrivalTime : arrive_times) {
+            if (arrivalTime <= 0) {
+                onTimeCount++;
+            }
+        }
+
+        return onTimeCount < min_students;
+    }
 }
