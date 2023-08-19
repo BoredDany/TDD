@@ -14,12 +14,6 @@ public class Main {
         for(int i = 0 ; i < cant ; i++){
             arriveTimes[i] = sn.nextInt();
         }
-        System.out.println("cant: "+cant);
-        System.out.println("miin: "+minStudents);
-        System.out.println("array: ");
-        for(int i: arriveTimes){
-            System.out.print(i + " ");
-        }
 
         Salon salon = new Salon();
         salon.asign_min_students(minStudents,arriveTimes);
